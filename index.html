@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hennepin County Development Trends</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+    <link href="https://fonts.googleapis.com/css?family=Jura" rel="stylesheet">
+
+    
+    <style>
+      html, body, #map {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+        
+        #title-bar {
+            position: absolute;
+            top: 0;
+            right: .5%;
+            left: .5%;
+            width: 99%;
+            height: 10%;
+            background-color: rgba(90, 90, 90, 0.70);
+        }
+        #side-panel {
+            position: absolute;
+            right: .5%;
+            top: 11%;
+            bottom: 40%;
+            width: 20%;
+            background-color: #d1d1d1;
+            background-color: rgba(90, 90, 90, 0.70);
+        }
+        
+        h1 {
+            font-family: 'jura', cursive;
+            color: whitesmoke;
+            text-align: center;
+            font-weight: 400;
+            font-size: 2.5em;    
+        }
+        h2 {
+            font-family: 'jura', cursive;
+            color: whitesmoke;
+            text-align: center;
+            font-weight: 200;
+            font-size: 1em;    
+        }
+        h3{
+            font-family: 'jura', cursive;
+            color: whitesmoke;
+            text-align: center;
+            font-weight: 100;
+            font-size: .8em;
+        }
+        p {
+            font-family: 'jura', cursive;
+            color: whitesmoke;
+            padding: 5%;
+            text-align: justify;
+            font-weight: 400;
+            font-size: 1em;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    
+    <div id="map"></div>
+    
+    <div id='title-bar'>
+    <h1>Hennepin County Non-Residential Permits 2003 - 2014</h1>
+    </div>
+    
+    <div id='side-panel'>
+        <h2>About this map: </h2>
+        <p>A visual representation of the accumulation of new construction non-residential permits within Hennepin county over an 11 year span.</p>
+        <h2>Data:</h2>
+        <p>The data for this map was sourced from the US Census Bureau by way of Metropolitan Council - http://stats.metc.state.mn.us</p>
+        <h3>Map authored by: Tyler Hegwood 2016</h3>
+    </div>
+
+
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    
+    <script type="cartCSS/html" id="states-styles">
+    
+    </script>
+    
+    <script>
+        
+        var url = 'https://tyche87.carto.com/api/v2/viz/c61f7a66-8526-11e6-9387-0e05a8b3e3d7/viz.json'
+        
+        cartodb.createVis('map', url,{
+            zoom:10
+            
+        })
+            .done(function(vis, layers){
+            console.log(vis, layers)
+        });
+
+//        var map = L.map('map', {
+//            center: [-7.5,5],
+//            zoom: 4.5,
+//            minZoom: 4,
+//            title: true,
+//        });
+ 
+                
+//        var graticuleCartoCSS = '#na_grat_clipped{' +
+//            'line-color: #777574;' +
+//            'line-width: 2;' +
+//            'line-opacity: 0.7;' +
+//        '}';
+//        
+//        var landCartoCSS = '#na_land_clipped{' +
+//            'polygon-fill: #777574;' +
+//            'polygon-opacity: 1;' +
+//            'line-color: #FFF;' +
+//            'line-width: 0.2;' +
+//            'line-opacity: 1;' +
+//        '}';
+        
+        
+//        var sourceObject = {
+//            user_name: 'tyche87',
+//            type: 'cartodb',
+//            sublayers: [
+//                {
+//                    sql: "SELECT ST_transform(the_geom, 2163) AS the_geom_webmercator FROM na_grat_clipped",
+//                    cartocss: graticuleCartoCSS
+//                },
+//                {
+//                    sql: "SELECT ST_transform(the_geom, 2163) AS the_geom_webmercator FROM na_land_clipped",
+//                    cartocss: landCartoCSS
+//                },
+//                {
+//                    sql: "SELECT ST_transform(the_geom, 2163) AS the_geom_webmercator,cartodb_id,delta FROM durable_goods_join_shp",
+//                    cartocss: $("#states-styles").text()
+//                },
+//                
+//            ]
+//        };
+//        
+//        cartodb.createLayer(map, sourceObject).addTo(map)
+    
+
+    </script>
+</body>
+</html>
